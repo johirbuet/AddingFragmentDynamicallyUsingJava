@@ -1,5 +1,6 @@
 package com.johir.useraction.addingfragmentbyjava;
 
+import android.support.annotation.StringDef;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,5 +32,14 @@ public class MainActivity extends AppCompatActivity {
                     .remove(fragment)
                     .commit();
         }
+    }
+
+    public void displayMetric(View v){
+        ScreenUtility utility = new ScreenUtility(this);
+        String s = String.format("Width = %s, Height = %s",utility.getDpWidth(),utility.getDpHeight());
+        Fragment fragment = SimpleFragment.newInstance(s);
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragment_simple,fragment)
+                .commit();
     }
 }

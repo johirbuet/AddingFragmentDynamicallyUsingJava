@@ -39,4 +39,16 @@
         android:onClick="removeFragment"
         android:text="Remove" />
 
+    <Button
+        android:id="@+id/buttonDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/buttonRemove"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_toLeftOf="@+id/buttonRemove"
+        android:layout_toStartOf="@+id/buttonRemove"
+        android:onClick="displayMetric"
+        android:text="Display" />
+
 </RelativeLayout>

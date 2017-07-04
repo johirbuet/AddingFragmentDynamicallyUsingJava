@@ -7,6 +7,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String TAG = "simple_fragment";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,12 +18,12 @@ public class MainActivity extends AppCompatActivity {
     public void addFragment(View v){
         SimpleFragment fragment = new SimpleFragment();
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_simple,fragment)
+                .add(R.id.fragment_simple,fragment,TAG)
                 .commit();
     }
 
     public void removeFragment(View v){
-        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_simple);
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(TAG);
         if(fragment != null){
             getSupportFragmentManager().beginTransaction()
                     .remove(fragment)

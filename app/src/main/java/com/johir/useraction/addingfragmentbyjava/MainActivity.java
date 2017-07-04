@@ -16,7 +16,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addFragment(View v){
+        Bundle arguments = new Bundle();
+        arguments.putString(SimpleFragment.MESSAGE_KEY,"Passed as an argument");
         SimpleFragment fragment = new SimpleFragment();
+        fragment.setArguments(arguments);
         getSupportFragmentManager().beginTransaction()
                 .addToBackStack(null)
                 .add(R.id.fragment_simple,fragment,TAG)

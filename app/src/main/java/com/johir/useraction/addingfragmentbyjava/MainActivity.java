@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     public void addFragment(View v){
         SimpleFragment fragment = new SimpleFragment();
         getSupportFragmentManager().beginTransaction()
+                .addToBackStack(null)
                 .add(R.id.fragment_simple,fragment,TAG)
                 .commit();
     }

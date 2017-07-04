@@ -21,6 +21,13 @@ public class SimpleFragment extends Fragment {
     }
 
 
+    public static SimpleFragment newInstance(String message){
+        Bundle args = new Bundle();
+        args.putString(MESSAGE_KEY, message);
+        SimpleFragment fragment = new SimpleFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

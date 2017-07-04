@@ -9,6 +9,7 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "simple_fragment";
+    public  boolean mUseFragment = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,15 @@ public class MainActivity extends AppCompatActivity {
         String s = String.format("Width = %s, Height = %s",utility.getDpWidth(),utility.getDpHeight());
         Fragment fragment = SimpleFragment.newInstance(s);
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_simple,fragment)
+                .add(R.id.fragment_simple,fragment,TAG)
                 .commit();
+
+        if(utility.getDpWidth()>= 500){
+            mUseFragment = true;
+        }
+        else
+        {
+            mUseFragment = false;
+        }
     }
 }
